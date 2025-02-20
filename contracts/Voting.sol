@@ -66,6 +66,6 @@ contract Voting {
         if (block.timestamp >= votingEnd) {
             return 0;
         }
-        return votingEnd - block.timestamp;ad
+        return votingEnd - block.timestamp;
     }
 }
