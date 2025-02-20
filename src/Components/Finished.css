@@ -1,0 +1,18 @@
+/* Finished.css */
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-message {
+    font-size: 2rem; /* Font size */
+    font-weight: bold; /* Bold text */
+    color: #4a5568; /* Dark gray color */
+    text-align: center; /* Centered text */
+    padding: 20px; /* Padding around the text */
+    background-color: #ffffff; /* White background for the message */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}

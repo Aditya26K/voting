@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* More premium font */
+    background: linear-gradient(to right, #141E30, #243B55); /* Darker, more elegant gradient */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px; /* Add padding for better spacing */
+}
+
+.login-card {
+    background: white;
+    border-radius: 20px; /* More rounded corners for a premium feel */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+    padding: 50px; /* Increased padding for a more spacious feel */
+    text-align: center;
+    width: 400px; /* Fixed width for larger screens */
+    max-width: 90%; /* Responsive max width */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth scaling and shadow effect */
+}
+
+.login-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+.welcome-message {
+    font-size: 30px; /* Larger font size for better visibility */
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600; /* Semi-bold text for emphasis */
+}
+
+.description {
+    font-size: 18px; /* Slightly larger font for description */
+    margin-bottom: 30px;
+    color: #555; /* Softer color for description */
+}
+
+.button-container {
+    display: flex; /* Use flexbox to center the button */
+    justify-content: center; /* Center the button horizontally */
+    align-items: center; /* Center the button vertically */
+}
+
+.login-button {
+    background-color: #ff8c00; /* A vibrant color for the button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px; /* Increased padding for a more substantial button */
+    font-size: 18px; /* Larger font size for the button */
+    cursor: pointer;
+    display: flex; /* Flexbox for icon and text alignment */
+    align-items: center; /* Center icon vertically */
+    justify-content: center; /* Center text horizontally */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for hover effect */
+    font-weight: 500; /* Medium font weight for button text */
+}
+
+.button-icon {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 20px; /* Icon size */
+}
+
+.login-button:hover {
+    background-color: #e07b00; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .login-card {
+        width: 90%; /* Full width on smaller screens */
+    }
+
+    .welcome-message {
+        font-size: 26px; /* Adjust font size for smaller screens */
+    }
+
+    .description {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+
+    .login-button {
+        font-size: 16px; /* Adjust button font size for smaller screens */
+    }
+}

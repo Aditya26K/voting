@@ -1,43 +1,75 @@
 import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes for type checking
+import './Connected.css'; // Ensure this file exists in the same directory
 
-const Connected = (props) => {
+const Connected = ({ account, remainingTime, showButton, number, handleNumberChange, voteFunction, candidates }) => {
     return (
         <div className="connected-container">
-            <h1 className="connected-header">You are Connected to Metamask</h1>
-            <p className="connected-account">Metamask Account: {props.account}</p>
-            <p className="connected-account">Remaining Time: {props.remainingTime}</p>
-            { props.showButton ? (
-                <p className="connected-account">You have already voted</p>
+            <h1 className="connected-header">Connected to MetaMask</h1>
+            <p className="connected-account">
+                Account: <span className="account-highlight">{account}</span>
+            </p>
+            <p className="connected-account">Remaining Time: <strong>{remainingTime}</strong></p>
+            {showButton ? (
+                <p className="connected-message">You have already voted</p>
             ) : (
-                <div>
-                    <input type="number" placeholder="Entern Candidate Index" value={props.number} onChange={props.handleNumberChange}></input>
-            <br />
-            <button className="login-button" onClick={props.voteFunction}>Vote</button>
-
+                <div className="vote-section">
+                    <input 
+                        type="number" 
+                        placeholder="Enter Candidate Index" 
+                        value={number} 
+                        onChange={handleNumberChange} 
+                        className="candidate-input"
+                        aria-label="Candidate Index" // Accessibility improvement
+                    />
+                    <button 
+                        className="vote-button" 
+                        onClick={voteFunction}
+                        disabled={!number} // Disable button if no number is entered
+                        aria-label="Vote" // Accessibility improvement
+                    >
+                        Vote
+                    </button>
                 </div>
             )}
             
-            <table id="myTable" className="candidates-table">
+            <table className="candidates-table">
                 <thead>
-                <tr>
-                    <th>Index</th>
-                    <th>Candidate name</th>
-                    <th>Candidate votes</th>
-                </tr>
+                    <tr>
+                        <th>Index</th>
+                        <th>Candidate Name</th>
+                        <th>Votes</th>
+                    </tr>
                 </thead>
                 <tbody>
-                {props.candidates.map((candidate, index) => (
-                    <tr key={index}>
-                    <td>{candidate.index}</td>
-                    <td>{candidate.name}</td>
-                    <td>{candidate.voteCount}</td>
-                    </tr>
-                ))}
+                    {candidates.map((candidate) => (
+                        <tr key={candidate.index}>
+                            <td>{candidate.index}</td>
+                            <td>{candidate.name}</td>
+                            <td>{candidate.voteCount}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
-            
         </div>
-    )
+    );
 }
+
+// Define prop types for better documentation and type checking
+Connected.propTypes = {
+    account: PropTypes.string.isRequired,
+    remainingTime: PropTypes.string.isRequired,
+    showButton: PropTypes.bool.isRequired,
+    number: PropTypes.number,
+    handleNumberChange: PropTypes.func.isRequired,
+    voteFunction: PropTypes.func.isRequired,
+    candidates: PropTypes.arrayOf(
+        PropTypes.shape({
+            index: PropTypes.number.isRequired,
+            name: PropTypes.string.isRequired,
+            voteCount: PropTypes.number.isRequired,
+        })
+    ).isRequired,
+};
 
 export default Connected;

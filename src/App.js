@@ -6,7 +6,7 @@ import Finished from './Components/Finished';
 import Connected from './Components/Connected';
 import './App.css';
 
-function App() {
+function App() { 
   const [provider, setProvider] = useState(null);
   const [account, setAccount] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
@@ -18,6 +18,7 @@ function App() {
 
 
   useEffect( () => {
+    setVotingStatus(true);
     getCandidates();
     getRemainingTime();
     getCurrentStatus();
@@ -124,8 +125,8 @@ function App() {
         setIsConnected(true);
         canVote();
       } catch (err) {
-        console.error(err);
-      }
+        console.error(err); 
+       }
     } else {
       console.error("Metamask is not detected in the browser")
     }
@@ -138,7 +139,7 @@ function App() {
   return (
     <div className="App">
       { votingStatus ? (isConnected ? (<Connected 
-                      account = {account}
+                      account = {account} 
                       candidates = {candidates}
                       remainingTime = {remainingTime}
                       number= {number}

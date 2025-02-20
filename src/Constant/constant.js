@@ -1,9 +1,9 @@
-const contractAddress = "0x7b5fdCb7a5d983cfB70f2EF55aB8DFe7607A2C00";
+const contractAddress = "0xc137D90aA5e174315c24EB7BF0C4639e1c412E1E";
 
 const contractAbi = [
     {
       "inputs": [
-        {
+        { 
           "internalType": "string[]",
           "name": "_candidateNames",
           "type": "string[]"
